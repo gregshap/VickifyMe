@@ -50,3 +50,5 @@ def main():
         out.write('*to review' + '\r\n')
         out.write('')
         
+if  __name__ =='__main__':
+    main()
