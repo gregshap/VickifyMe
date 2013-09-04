@@ -7,7 +7,7 @@ Parse commit comments into mediawiki with formatted links to PBIs, bug tickets, 
 Install [python](http://python.org/) 2.7 and run:
 
 ```sh
-    <code> python VickifyMe.py AllTheChangesets.txt </code>
+    python VickifyMe.py AllTheChangesets.txt
 ```
 
 Where "AllTheChangesets.txt" should contain a json collection of changeset data from TFS 2012.
