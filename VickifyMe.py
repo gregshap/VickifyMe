@@ -17,7 +17,9 @@ def getFormattedComment(comment):
     
     
     #Replace 'Ticket #123456' with '{{Ticket|123456}}'
-    formattedComment = re.sub(r'(?P<tick>Ticket)(\W*#\W*)(?P<tickID>\d{6})', '{{\g<tick>|\g<tickID>}}', formattedComment)
+    #Or Ticket# 123456
+    #Or Ticket 123456
+    formattedComment = re.sub(r'(?P<tick>Ticket)((\W*#\W*)|\W*)(?P<tickID>\d{6})', '{{\g<tick>|\g<tickID>}}', formattedComment)
     
     return formattedComment
 	
