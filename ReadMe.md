@@ -25,11 +25,3 @@ curl -u gregshap https://api.github.com/repos/gregshap/vickifyme/commits?author=
 
 Run VickifyMe in the directoy of the json file, and you'll get a new file with text ready to copy into MediaWiki.
 
-
-## Notes
-
-This is pretty dependent on having some standard conventions for writing commit notes, but that's a good idea anyway. 
-It shouldn't be hard to edit for other checkin comment styles.
-
-The current workflow to grab changeset data using devtools is a bit of pain. 
-Some work to automate that process will make the tool much easier to adopt.
