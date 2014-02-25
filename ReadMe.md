@@ -20,10 +20,10 @@ Grab the changesets you want from the github API http://developer.github.com/v3/
 
 If you are looking at a private repo, you can do this with a curl request like:
 ```sh
-curl -u gregshap -i https://api.github.com/repos/gregshap/vickifyme/commits?author=gregshap > GregsCommits.txt
+curl -u gregshap https://api.github.com/repos/gregshap/vickifyme/commits?author=gregshap > GregsCommits.txt
 ```
 
-Save the whole hunk of json into a text file next to the script, and when you run VickifyMe you'll get a new file with text ready to copy into MediaWiki.
+Run VickifyMe in the directoy of the json file, and you'll get a new file with text ready to copy into MediaWiki.
 
 
 ## Notes
