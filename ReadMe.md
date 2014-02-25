@@ -1,6 +1,8 @@
-# Convert VAN Changesets into Mediawiki
+# Format github changesets into Mediawiki markup
 
-Parse commit comments into mediawiki with formatted links to PBIs, bug tickets, changeset diffs
+Parse commit comments into mediawiki with formatted links to JIRA items, bug tickets, changeset diffs
+
+Mostly useful for NGPVAN/VAN commit message style and associated mediawiki templates
 
 ## Installation
 
@@ -10,15 +12,16 @@ Install [python](http://python.org/) 2.7 and run:
     python VickifyMe.py AllTheChangesets.txt
 ```
 
-Where "AllTheChangesets.txt" should contain a json collection of changeset data from TFS 2012.
+Where "AllTheChangesets.txt" contains the json part of the response from https://api.github.com/repos/:owner/:repo/commits/
 
 ## Pulling down the changeset data
 
-Grab the json data by going to your TFS collection web portal, clicking 'SOURCE' and then "Find..." to get to the changeset picker.
+Grab the changesets you want from the github API http://developer.github.com/v3/git/commits/
 
-
-Filter to the desired changesets, then use firebug, chrome tools, or your weapon of choice to grab the json response when you hit the find button.
-
+If you are looking at a private repo, you can do this with a curl request like:
+```sh
+curl -u gregshap -i https://api.github.com/repos/gregshap/vickifyme/commits?author=gregshap > GregsCommits.txt
+```
 
 Save the whole hunk of json into a text file next to the script, and when you run VickifyMe you'll get a new file with text ready to copy into MediaWiki.
 
