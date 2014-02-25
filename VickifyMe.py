@@ -15,7 +15,9 @@ def getFormattedComment(comment):
     #Replace 'Bug 12345' with '{{Bug|12345}}'
     formattedComment = re.sub(r'(?P<bug>BUG|Bug|bug)\W(?P<bugID>\d{5})', '{{\g<bug>|\g<bugID>}}',formattedComment)
     
-    
+    #Replace 'VAN-123' with '{{Jira|VAN-123}}'
+    formattedComment = re.sub(r'(?P<van>VAN|Van|van)-(?P<vanID>\d{1,5})', '{{Jira|\g<van>-\g<vanID>}}',formattedComment)
+
     #Replace 'Ticket #123456' with '{{Ticket|123456}}'
     #Or Ticket# 123456
     #Or Ticket 123456
