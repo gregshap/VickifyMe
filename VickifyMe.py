@@ -4,7 +4,7 @@ import sys
 
 
 def getFormattedChangesetID(id):
-    return '=={{Changeset|' + str(id) + '}}=='
+    return '=={{Commit|' + str(id) + '}}=='
 
 def getFormattedComment(comment):
     #Do find and replace to add mediawiki formatting
@@ -45,12 +45,12 @@ def main():
 
     out = open( 'format'+sys.argv[1] ,'wb')
 
-    changesets = jsonData['__wrappedArray']
-
-    #Print each changeset
-    changesets.reverse() #TFS gives us newest sets first, but we want oldest first
+    changesets = jsonData
+    changesets.reverse() #Github api gives news commits first by default, we want oldest first
+    
+    #Write each changeset formatting to file:
     for set in changesets:
-        out.write(getFormattedChangeset(set['id'],set['comment']))
+        out.write(getFormattedChangeset(set['sha'],set['commit']['message']))
         out.write('*to review' + '\r\n')
         out.write('')
         
